@@ -5,7 +5,7 @@ echo "========================================================================="
 yum install -y gcc make zlib zlib-devel readline-devel sqlite sqlite-devel openssl-devel mysql-devel gd-devel openjpeg-devel
 
 cd ~
-wget https://www.python.org/ftp/python/2.7.14/Python-2.7.14.tar.xz
+wget https://www.python.org/ftp/python/2.7.14/Python-2.7.14.tar.xz --no-check-certificate
 tar Jxvf Python-2.7.14.tar.xz
 pushd Python-2.7.14
 ./configure --prefix=/usr/share/python && \
@@ -30,11 +30,11 @@ pip install transmissionrpc
 
 mkdir -p /root/.flexget
 cd .flexget
-wget -c https://github.zhiqiang.name/zylx0532/transmission/master/2.94/config.yml -O config.yml
+wget -c https://github.zhiqiang.name/zylx0532/transmission/master/2.94/config.yml -O config.yml --no-check-certificate
 /usr/local/bin/flexget -c /root/.flexget/config.yml execute
 echo "*/5 * * * * /usr/local/bin/flexget -c /root/.flexget/config.yml" >> /etc/crontab
 
-wget https://github.zhiqiang.name/zylx0532/transmission/master/2.94/trans_cleanup.sh -O /root/trans_cleanup.sh
+wget https://github.zhiqiang.name/zylx0532/transmission/master/2.94/trans_cleanup.sh -O /root/trans_cleanup.sh --no-check-certificate
 chmod 777 /root/trans_cleanup.sh
 echo "*/1 * * * * /bin/bash /root/trans_cleanup.sh" >> /etc/crontab
 
@@ -52,14 +52,14 @@ mv -f /home/Downloads /home/transmission
 mv -f /home/resume /home/transmission/.config/transmission
 mv -f /home/torrents /home/transmission/.config/transmission
 cd /root
-wget -c https://github.zhiqiang.name/zylx0532/transmission/master/2.94/intltool-0.40.6.tar.gz -O intltool-0.40.6.tar.gz
+wget -c https://github.zhiqiang.name/zylx0532/transmission/master/2.94/intltool-0.40.6.tar.gz -O intltool-0.40.6.tar.gz --no-check-certificate
 tar zxf intltool-0.40.6.tar.gz
 cd intltool-0.40.6
 ./configure --prefix=/usr
 make -s
 make -s install
 cd ..
-wget -c https://github.zhiqiang.name/zylx0532/transmission/master/2.94/libevent-2.0.21-stable.tar.gz -O libevent-2.0.21-stable.tar.gz
+wget -c https://github.zhiqiang.name/zylx0532/transmission/master/2.94/libevent-2.0.21-stable.tar.gz -O libevent-2.0.21-stable.tar.gz --no-check-certificate
 tar zxf libevent-2.0.21-stable.tar.gz
 cd libevent-2.0.21-stable
 ./configure
@@ -72,7 +72,7 @@ ln -s /usr/lib/libevent-2.0.so.5 /usr/local/lib/libevent-2.0.so.5
 ln -s /usr/lib/libevent-2.0.so.5.1.9 /usr/local/lib/libevent-2.0.so.5.1.9
 echo install Transmisson
 cd /root
-wget -c https://github.zhiqiang.name/zylx0532/transmission/master/2.94/transmission-2.94.tar.xz -O transmission-2.94.tar.xz
+wget -c https://github.zhiqiang.name/zylx0532/transmission/master/2.94/transmission-2.94.tar.xz -O transmission-2.94.tar.xz --no-check-certificate
 tar Jxvf transmission-2.94.tar.xz
 cd transmission-2.94
 ./configure --prefix=/usr
@@ -80,19 +80,19 @@ make -s
 make -s install
 useradd -m transmission
 passwd -d transmission
-wget https://github.zhiqiang.name/zylx0532/transmission/master/2.94/transmission.sh -O /etc/init.d/transmissiond
+wget https://github.zhiqiang.name/zylx0532/transmission/master/2.94/transmission.sh -O /etc/init.d/transmissiond --no-check-certificate
 chmod 755 /etc/init.d/transmissiond
 chkconfig --add transmissiond
 chkconfig --level 2345 transmissiond on
 mkdir -p /home/transmission/Downloads/
 chmod g+w /home/transmission/Downloads/
-wget -c https://github.zhiqiang.name/zylx0532/transmission/master/2.94/settings.json -O settings.json
+wget -c https://github.zhiqiang.name/zylx0532/transmission/master/2.94/settings.json -O settings.json --no-check-certificate
 mkdir -p /home/transmission/.config/transmission/
 mv -f settings.json /home/transmission/.config/transmission/settings.json
 chown -R transmission.transmission /home/transmission
-wget -c https://github.zhiqiang.name/zylx0532/transmission/master/2.94/index.html -O index.html
+wget -c https://github.zhiqiang.name/zylx0532/transmission/master/2.94/index.html -O index.html --no-check-certificate
 mv -f index.html /usr/share/transmission/web/index.html
-wget -O webgui.sh https://github.zhiqiang.name/zylx0532/transmission/master/2.94/webgui.sh && bash webgui.sh
+wget -O webgui.sh https://github.zhiqiang.name/zylx0532/transmission/master/2.94/webgui.sh && bash webgui.sh --no-check-certificate
 service transmissiond start
 /sbin/iptables -I INPUT -p tcp --dport 9091 -j ACCEPT
 /sbin/iptables -I INPUT -p tcp --dport 65050 -j ACCEPT
