@@ -5,23 +5,21 @@ echo "========================================================================="
 yum install -y gcc make zlib zlib-devel readline-devel sqlite sqlite-devel openssl-devel mysql-devel gd-devel openjpeg-devel
 
 cd ~
-wget https://npm.taobao.org/mirrors/python/2.7.14/Python-2.7.14.tar.xz --no-check-certificate
-tar Jxvf Python-2.7.14.tar.xz
+wget https://npm.taobao.org/mirrors/python/2.7.14/Python-2.7.14.tgz --no-check-certificate
+tar zxf Python-2.7.14.tgz
 pushd Python-2.7.14
-./configure --prefix=/usr/share/python && \
-make && \
-make install && \
+./configure --prefix=/usr/share/python
+make
+make install
 ln -s /usr/share/python/bin/python2.7 /usr/local/bin/python
 source ~/.bash_profile
 popd
 
-yum -y install epel-release
-yum -y install python-pip
+yum -y install epel-release python-pip
 wget https://bootstrap.pypa.io/get-pip.py --no-check-certificate
 /usr/local/bin/python get-pip.py
 ln -s /usr/share/python/bin/pip /usr/local/bin/pip
-pip install --upgrade pip
-pip install --upgrade setuptools
+
 
 pip install --upgrade pip
 pip install --upgrade setuptools
@@ -29,10 +27,11 @@ pip install flexget
 pip install transmissionrpc
 
 mkdir -p /root/.flexget
-cd .flexget
-wget -c https://raw.githubusercontent.com/zylx0532/transmission/master/2.94/config.yml --no-check-certificate -O config.yml
-/usr/local/bin/flexget -c /root/.flexget/config.yml execute
-echo "*/5 * * * * /usr/local/bin/flexget -c /root/.flexget/config.yml" >> /etc/crontab
+mkdir -p /home/transmission/torrent
+
+wget -c https://raw.githubusercontent.com/zylx0532/transmission/master/2.94/config.yml --no-check-certificate -O /root/.flexget/config.yml
+/usr/share/python/bin/flexget -c /root/.flexget/config.yml execute
+echo "*/5 * * * * /usr/share/python/bin/flexget -c /root/.flexget/config.yml" >> /etc/crontab
 
 wget https://raw.githubusercontent.com/zylx0532/transmission/master/2.94/trans_cleanup.sh --no-check-certificate -O /root/trans_cleanup.sh
 chmod 777 /root/trans_cleanup.sh

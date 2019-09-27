@@ -23,7 +23,7 @@ PASSWORD="zhiqiang"
 DLDIR="/home/transmission/Downloads"
  
 # The maximum allowed disk (%)
-DISK_USED_MAX="80"
+DISK_USED_MAX="90"
  
 # Enable auto shutdown support (Disable=0, Enable=1)
 ENABLE_AUTO_SHUTDOWN="0"
