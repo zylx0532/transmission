@@ -31,12 +31,13 @@ mkdir -p /home/transmission/torrent
 
 wget -c https://raw.githubusercontent.com/zylx0532/transmission/master/2.94/config.yml --no-check-certificate -O /root/.flexget/config.yml
 /usr/share/python/bin/flexget -c /root/.flexget/config.yml execute
-echo "*/5 * * * * /usr/share/python/bin/flexget -c /root/.flexget/config.yml" >> /etc/crontab
+echo "*/5 * * * * root /usr/share/python/bin/flexget -c /root/.flexget/config.yml" >> /etc/crontab
 
 wget https://raw.githubusercontent.com/zylx0532/transmission/master/2.94/trans_cleanup.sh --no-check-certificate -O /root/trans_cleanup.sh
 chmod 777 /root/trans_cleanup.sh
-echo "*/1 * * * * /bin/bash /root/trans_cleanup.sh" >> /etc/crontab
+echo "*/1 * * * * root /bin/bash /root/trans_cleanup.sh" >> /etc/crontab
 
+/sbin/service crond reload
 
 echo "========================================================================="
 echo "Install end"
