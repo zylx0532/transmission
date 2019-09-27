@@ -8,13 +8,13 @@
 1. 一键安装transmission+webGUI
 
 ```
-wget https://github.zhiqiang.name/zylx0532/transmission/master/2.94/transmissionbt.sh -O transmissionbt.sh;sh transmissionbt.sh
+wget https://github.com/zylx0532/transmission/master/2.94/transmissionbt.sh -O transmissionbt.sh;sh transmissionbt.sh
 ```
 
 2. 一键安装FlexGet
 
 ```
-wget https://github.zhiqiang.name/zylx0532/transmission/master/2.94/flexget.sh -O flexget.sh;sh flexget.sh
+wget https://github.com/zylx0532/transmission/master/2.94/flexget.sh -O flexget.sh;sh flexget.sh
 ```
 
 ### 配置文件 ###
