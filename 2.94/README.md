@@ -11,6 +11,16 @@
 wget https://github.zhiqiang.name/zylx0532/transmission/master/2.94/transmissionbt.sh -O transmissionbt.sh;sh transmissionbt.sh
 ```
 
+### 配置文件 ###
+1. transmission
+```
+service transmissiond stop
+vi /home/transmission/.config/transmission/settings.json
+```
+rpc-username 帐号
+rpc-password 密码
+rpc-port 端口
+rpc-authentication-required 是否开启使用账号密码加密访问
 
 ### 卸载 ###
 1. 卸载transmissionbt
