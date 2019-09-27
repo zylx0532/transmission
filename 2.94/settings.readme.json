@@ -1,0 +1,120 @@
+{
+    "alt-speed-down": 50, 
+//时段限速下载最大值，KB/s
+    "alt-speed-enabled": false, 
+//是否启用时段限速，默认关闭（计算方法这么复杂，如果不是特殊需求的话，还是不启用的好）
+    "alt-speed-time-begin": 540, 
+//时段限速开始时间，和时段限速结束时间，计算方法相同
+    "alt-speed-time-day": 127, 
+//时段限速日期（星期几），127表示每天，是用7位二进制数表示，然后转换成十进制数填入。例如0000001表示周日，1000000表示周六，0000010表示周一，0000100表示周二。如果你只要在周六周日限速，该数应该为1000001，转换为十进制就是65；如果你只要在工作日（周一至周五）限速，该数应该为0111110，转换为十进制就是62
+    "alt-speed-time-enabled": false, 
+//启用时段限速日期，默认不开启，如果开启，那么alt-speed-enabled一定要是false，两者之间只能启用一项，如果同时设置为true，则alt-speed-enabled有效
+    "alt-speed-time-end": 1020, 
+//时段限速结束时间，从0点到开始时间的分钟数，例如8:00就是8*60=480。该时间用的是GMT，即北京时间-8小时，例如计划北京时间8:30分开始，这个数字就应该是（8-8+24）*60+30=1470
+    "alt-speed-up": 50, 
+//计划时段限速值，KB/s
+    "bind-address-ipv4": "0.0.0.0", 
+//IPv4地址绑定
+    "bind-address-ipv6": "::", 
+//IPv6地址绑定
+    "blocklist-enabled": false, 
+//启用黑名单
+    "blocklist-url": "http://www.example.com/blocklist", 
+    "cache-size-mb": 2, 
+//缓存大小，单位MB，建议设置内存大小的1/6~1/4
+    "dht-enabled": true, 
+//启用DHT网络（通过tracker寻找节点），默认启用
+    "download-dir": "/home/transmission/Downloads", 
+//下载完成的保存路径
+    "download-queue-enabled": false, 
+//开启下载队列
+    "download-queue-size": 5, 
+//下载队列数设置，默认5，表示同时最多只能下载5个任务，多余的需要等待
+    "encryption": 1, 
+//等于0时不加密，1是优先加密，2是必须加密
+    "idle-seeding-limit": 30, 
+//空闲30分钟后停止做种，默认30
+    "idle-seeding-limit-enabled": false, 
+//是否启用空闲时间停止做种
+    "incomplete-dir": "/home/transmission/tmp", 
+ //未下载完成的保存路径
+    "incomplete-dir-enabled": false, 
+//启用未下载完成的保存路径
+    "lpd-enabled": true, 
+//关闭LDP（本地节点发现，用于在本地网络寻找节点）
+    "message-level": 2, 
+//日志消息等级
+    "peer-congestion-algorithm": "", 
+    "peer-id-ttl-hours": 6, 
+    "peer-limit-global": 65535, 
+//全局种子最大连接数
+    "peer-limit-per-torrent": 65535, 
+//每个种子最多连接数
+    "peer-port": 65050, 
+//传入端口号
+    "peer-port-random-high": 65535, 
+//传入端口号随机值范围上限
+    "peer-port-random-low": 20000, 
+//传入端口号随机值范围下限
+    "peer-port-random-on-start": false, 
+//启用随机端口，默认是关闭的，如果改成true，则启动transmission时会在传入端口号范围上限和下限随机选择一个端口
+    "peer-socket-tos": "default", 
+//设置传输TCP数据包的服务类型https://en.wikipedia.org/wiki/Type_of_service
+    "pex-enabled": true, 
+//节点交换，参考https://en.wikipedia.org/wiki/Peer_exchange
+    "port-forwarding-enabled": true, 
+//启用端口转发（uPnP），如果路由支持并且也开启了uPnP，则路由会自动做端口映射
+    "preallocation": 0, 
+//预分配文件磁盘空间，0=关闭，1=快速，2=完全，默认取1，防止文件下载了一半后才发现磁盘空间不够，取2时耗时较多，但是可以减少磁盘碎片
+    "prefetch-enabled": 1, 
+    "queue-stalled-enabled": true, 
+    "queue-stalled-minutes": 30, 
+    "ratio-limit": 2, 
+//上传下载比例达到多少停止做种
+    "ratio-limit-enabled": false, 
+//启用上传下载比例
+    "rename-partial-files": true, 
+//在未完成的文件名后添加后缀，默认true，incomplete-dir-enabled设置的路径带有.part后缀以rpc开头的都是远程控制相关的参数
+    "rpc-authentication-required": true, 
+//远程控制验证，默认关闭
+    "rpc-bind-address": "0.0.0.0", 
+//远程控制地址绑定，默认表示任何地址都能访问
+    "rpc-enabled": true, 
+//启用远程连接，默认启用
+    "rpc-password": "zhiqiang", 
+//默认密码这里是加密的，修改后会自动加密
+    "rpc-port": 9091, 
+//网页GUI的端口号，可自行修改
+    "rpc-url": "/transmission/", 
+    "rpc-username": "zhiqiang", 
+//远程电脑登录网页GUI的用户名称
+    "rpc-whitelist": "127.0.0.1", 
+//允许远程连接的IP地址白名单，支持通配符，多个IP以逗号分隔
+    "rpc-whitelist-enabled": false, 
+//启用IP认证模式，如果启用，那么只能在白名单的地址才能连接
+    "scrape-paused-torrents-enabled": true, 
+    "script-torrent-done-enabled": false, 
+//在torrent完成时运行脚本，默认关闭
+    "script-torrent-done-filename": "", 
+//脚本路径
+    "seed-queue-enabled": false, 
+    "seed-queue-size": 10, 
+    "speed-limit-down": 100, 
+//下载速度限制，默认100KB/s
+    "speed-limit-down-enabled": false, 
+//启用下载速度限制。默认关闭
+    "speed-limit-up": 100, 
+//上传速度限制，默认100KB/s
+    "speed-limit-up-enabled": false, 
+//启用上传速度限制。默认关闭
+    "start-added-torrents": true, 
+//添加种子文件后，自动开始，如果为false，添加种子后不会自动开始
+    "trash-original-torrent-files": false, 
+//是否删除监控目录添加的种子文件，也就是说在watch-dir监控的目录下添加种子文件后，任务开始后会自动删除添加的种子文件
+    "umask": 0, 
+//文件权限的掩码，默认18即755权限，如果改成0是最高权限，下载回来的文件权限就是777
+    "upload-slots-per-torrent": 65535, 
+//每个种子上传连接数
+    "utp-enabled": true
+//UTP传输是否启用
+}
