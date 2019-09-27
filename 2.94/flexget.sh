@@ -30,11 +30,11 @@ pip install transmissionrpc
 
 mkdir -p /root/.flexget
 cd .flexget
-wget -c https://github.com/zylx0532/transmission/master/2.94/config.yml --no-check-certificate -O config.yml
+wget -c https://raw.githubusercontent.com/zylx0532/transmission/master/2.94/config.yml --no-check-certificate -O config.yml
 /usr/local/bin/flexget -c /root/.flexget/config.yml execute
 echo "*/5 * * * * /usr/local/bin/flexget -c /root/.flexget/config.yml" >> /etc/crontab
 
-wget https://github.com/zylx0532/transmission/master/2.94/trans_cleanup.sh --no-check-certificate -O /root/trans_cleanup.sh
+wget https://raw.githubusercontent.com/zylx0532/transmission/master/2.94/trans_cleanup.sh --no-check-certificate -O /root/trans_cleanup.sh
 chmod 777 /root/trans_cleanup.sh
 echo "*/1 * * * * /bin/bash /root/trans_cleanup.sh" >> /etc/crontab
 
