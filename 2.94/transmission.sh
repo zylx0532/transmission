@@ -3,7 +3,7 @@
 # chkconfig: - 16 84 						  #
 # description: Start up transmission-daemon	  #
 # Y-Space									  #
-# www.itzmx.com								  #
+# www.zhiqiang.com								  #
 # processname: transmission-daemon			  #
 # config: /etc/sysconfig/transmission		  #
 # source function library

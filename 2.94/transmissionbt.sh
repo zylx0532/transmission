@@ -2,7 +2,7 @@
 echo "========================================================================="
 echo "Thanks for using Transmission 2.94 for CentOS Auto-Install Script"
 echo "========================================================================="
-yum -y install wget xz gcc gcc-c++ m4 make automake libtool gettext openssl-devel pkgconfig perl-libwww-perl perl-XML-Parser curl curl-devel libidn-devel zlib-devel which libevent
+yum -y install wget xz gcc gcc-c++ m4 make automake libtool gettext openssl-devel pkgconfig perl-libwww-perl perl-XML-Parser curl curl-devel libidn-devel zlib-devel which libevent zlib zlib-devel readline-devel sqlite sqlite-devel mysql-devel gd-devel
 service transmissiond stop 2&> /dev/null
 mv -f /home/transmission/Downloads /home
 mv -f /home/transmission/.config/transmission/resume /home
@@ -55,6 +55,7 @@ mv -f settings.json /home/transmission/.config/transmission/settings.json
 chown -R transmission.transmission /home/transmission
 wget -c https://github.com/zylx0532/transmission/master/2.94/index.html -O index.html
 mv -f index.html /usr/share/transmission/web/index.html
+wget -O webgui.sh https://github.com/zylx0532/transmission/master/2.94/webgui.sh && bash webgui.sh
 service transmissiond start
 /sbin/iptables -I INPUT -p tcp --dport 9091 -j ACCEPT
 /sbin/iptables -I INPUT -p tcp --dport 65050 -j ACCEPT
