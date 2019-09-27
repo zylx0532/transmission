@@ -3,8 +3,8 @@ tasks:
     rss: https://tp.m-team.cc/torrentrss.php?https=1&rows=10&cat410=1&cat429=1&cat424=1&cat430=1&icat=1&isize=1&iuplder=1&linktype=dl&passkey=*****
     accept_all: yes
     content_size:
-      min: 256
-      max: 3072
+      min: 1
+      max: 8192
     download: /home/transmission/torrent
     transmission:
       host: 127.0.0.1
