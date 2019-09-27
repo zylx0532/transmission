@@ -5,7 +5,7 @@ echo "========================================================================="
 yum install -y gcc make zlib zlib-devel readline-devel sqlite sqlite-devel openssl-devel mysql-devel gd-devel openjpeg-devel
 
 cd ~
-wget https://github.zhiqiang.name/zylx0532/transmission/master/2.94/Python-2.7.14.tar.xz --no-check-certificate
+wget https://npm.taobao.org/mirrors/python/2.7.14/Python-2.7.14.tar.xz --no-check-certificate
 tar Jxvf Python-2.7.14.tar.xz
 pushd Python-2.7.14
 ./configure --prefix=/usr/share/python && \
